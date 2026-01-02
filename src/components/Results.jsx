@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { schemas, questions } from '../data/questions';
+import SchemaGuide from './SchemaGuide';
 
 export default function Results({ responses }) {
   const calculateSchemaScores = () => {
@@ -27,6 +28,13 @@ export default function Results({ responses }) {
   const sortedSchemas = Object.entries(scores)
     .sort((a, b) => b[1].percentage - a[1].percentage)
     .slice(0, 10);
+
+  // Get top 3 schemas for the guide
+  const topThreeSchemas = sortedSchemas.slice(0, 3).map(([schemaKey]) => ({
+    name: schemas[schemaKey].name,
+    description: schemas[schemaKey].description,
+    color: schemas[schemaKey].color
+  }));
 
   return (
     <div className="results-page">
@@ -103,6 +111,8 @@ export default function Results({ responses }) {
             They made sense at one time. Now, with awareness, you can choose new paths.
           </p>
         </motion.div>
+
+        <SchemaGuide topThreeSchemas={topThreeSchemas} />
 
         <motion.button
           className="start-button"
