@@ -17,20 +17,45 @@ Schema Journey transforms the clinical Young Schema Questionnaire into a beautif
 
 ## Getting Started
 
-Install dependencies:
+### 1. Install dependencies
 ```bash
 npm install
 ```
 
-Start the development server:
+### 2. Set up environment variables
+Create a `.env` file in the root directory:
+```bash
+cp .env.example .env
+```
+
+Then add your Gemini API key:
+```env
+VITE_GEMINI_API_KEY=your_actual_api_key_here
+```
+
+**Get your Gemini API key:**
+1. Go to https://aistudio.google.com/app/apikey
+2. Create a new API key
+3. Copy it to your `.env` file
+
+**⚠️ Important:** Never commit your `.env` file to Git! It's already in `.gitignore`.
+
+### 3. Start the development server
 ```bash
 npm run dev
 ```
 
-Build for production:
+### 4. Build for production
 ```bash
 npm run build
 ```
+
+### 5. Deploy to Vercel
+When deploying to Vercel, add the environment variable:
+1. Go to your Vercel project settings
+2. Navigate to "Environment Variables"
+3. Add `VITE_GEMINI_API_KEY` with your API key
+4. Redeploy
 
 ## The Experience
 

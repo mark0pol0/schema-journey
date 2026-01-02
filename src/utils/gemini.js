@@ -1,5 +1,9 @@
-const GEMINI_API_KEY = 'AIzaSyCtNVS4jSfNUrBwUzV9jki85UL_LY4oAJ0';
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+
+if (!GEMINI_API_KEY) {
+  console.error('VITE_GEMINI_API_KEY is not set in environment variables');
+}
 
 export async function generateSchemaGuide(topThreeSchemas) {
   const prompt = `Role: You are an expert Schema Therapist with deep knowledge of Dr. Jeffrey Young's Schema Therapy model. You possess high emotional intelligence and the ability to synthesize complex psychological patterns into clear, empathetic, and actionable insights.
