@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage';
 import QuestionFlow from './components/QuestionFlow';
 import Results from './components/Results';
 import AudioController from './components/AudioController';
+import DebugButton from './components/DebugButton';
 
 export default function App() {
   const [stage, setStage] = useState('landing');
@@ -18,10 +19,16 @@ export default function App() {
     setStage('results');
   };
 
+  const handleDebugFill = (randomResponses) => {
+    setResponses(randomResponses);
+    setStage('results');
+  };
+
   return (
     <div className="app">
       <Background />
       <AudioController />
+      <DebugButton onDebugFill={handleDebugFill} />
 
       {stage === 'landing' && <LandingPage onStart={handleStart} />}
       {stage === 'questions' && <QuestionFlow onComplete={handleComplete} />}
