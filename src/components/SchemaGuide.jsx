@@ -16,8 +16,8 @@ export default function SchemaGuide({ topThreeSchemas }) {
       const generatedGuide = await generateSchemaGuide(topThreeSchemas);
       setGuide(generatedGuide);
     } catch (err) {
-      setError('Failed to generate your schema guide. Please try again.');
-      console.error(err);
+      setError(`Failed to generate your schema guide: ${err.message}. Check the console for details.`);
+      console.error('Full error:', err);
     } finally {
       setIsGenerating(false);
     }

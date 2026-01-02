@@ -51,6 +51,9 @@ Here are the user's three schemas, you will now generate this based on them:
 3. ${topThreeSchemas[2].name} - ${topThreeSchemas[2].description}`;
 
   try {
+    console.log('Sending request to Gemini API...');
+    console.log('Top 3 schemas:', topThreeSchemas);
+
     const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
       method: 'POST',
       headers: {
@@ -71,16 +74,28 @@ Here are the user's three schemas, you will now generate this based on them:
       })
     });
 
+    console.log('Response status:', response.status);
+
     if (!response.ok) {
-      throw new Error(`API request failed: ${response.statusText}`);
+      const errorData = await response.json();
+      console.error('API Error Response:', errorData);
+      throw new Error(`API request failed: ${response.statusText} - ${JSON.stringify(errorData)}`);
     }
 
     const data = await response.json();
+    console.log('API Response:', data);
+
+    if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+      console.error('Unexpected API response structure:', data);
+      throw new Error('Unexpected API response structure');
+    }
+
     const generatedText = data.candidates[0].content.parts[0].text;
 
     return generatedText;
   } catch (error) {
     console.error('Error generating schema guide:', error);
+    console.error('Error details:', error.message);
     throw error;
   }
 }
