@@ -2,92 +2,92 @@ export const schemas = {
   ED: {
     name: "Emotional Deprivation",
     description: "The feeling that your emotional needs won't be met by others",
-    color: "#FF6B9D"
+    color: "#1e4d7b"
   },
   AB: {
     name: "Abandonment",
     description: "The fear that those close to you will leave or abandon you",
-    color: "#C65BCF"
+    color: "#2a5f8f"
   },
   MA: {
     name: "Mistrust/Abuse",
     description: "The belief that others will hurt, abuse, or take advantage of you",
-    color: "#845EC2"
+    color: "#3a6fa0"
   },
   SI: {
     name: "Social Isolation",
     description: "The feeling that you're different, don't belong, or are separate from the world",
-    color: "#2C73D2"
+    color: "#4a7fb0"
   },
   DS: {
     name: "Defectiveness",
     description: "The feeling that you're flawed, bad, or unlovable",
-    color: "#0081CF"
+    color: "#5a6b7d"
   },
   FA: {
     name: "Failure",
     description: "The belief that you're inadequate or will inevitably fail",
-    color: "#0089BA"
+    color: "#6b7c8d"
   },
   DI: {
     name: "Dependency/Incompetence",
     description: "The belief that you can't handle everyday responsibilities without help",
-    color: "#008E9B"
+    color: "#4a6278"
   },
   VH: {
     name: "Vulnerability to Harm",
     description: "The fear that disaster could strike at any moment",
-    color: "#008F7A"
+    color: "#3d5669"
   },
   EM: {
     name: "Enmeshment",
     description: "Excessive emotional involvement with others at the expense of your identity",
-    color: "#00C9A7"
+    color: "#2f6882"
   },
   SB: {
     name: "Subjugation",
     description: "Surrendering control to others out of feeling forced or to avoid consequences",
-    color: "#4FFBDF"
+    color: "#287a8a"
   },
   SS: {
     name: "Self-Sacrifice",
     description: "Excessively meeting others' needs at the expense of your own",
-    color: "#FFC75F"
+    color: "#3a8494"
   },
   FLC: {
     name: "Fear of Losing Control",
     description: "The fear of losing control over your emotions or impulses",
-    color: "#FF9671"
+    color: "#4c6e7a"
   },
   EC: {
     name: "Emotional Constriction",
     description: "Inhibiting emotions and spontaneous expression",
-    color: "#F9F871"
+    color: "#5a7580"
   },
   US: {
     name: "Unrelenting Standards",
     description: "The belief that you must meet very high internalized standards",
-    color: "#D65DB1"
+    color: "#667788"
   },
   ET: {
     name: "Entitlement",
     description: "The belief that you're superior and entitled to special rights",
-    color: "#FF6F91"
+    color: "#556677"
   },
   IS: {
     name: "Insufficient Self-Control",
     description: "Difficulty exercising self-control and tolerating frustration",
-    color: "#FF9CEE"
+    color: "#445566"
   },
   AS: {
     name: "Approval-Seeking",
     description: "Excessive emphasis on gaining approval and recognition",
-    color: "#FFC4E1"
+    color: "#334455"
   },
   NP: {
     name: "Negativity/Pessimism",
     description: "A pervasive focus on negative aspects of life",
-    color: "#B39CD0"
+    color: "#2c3e50"
   }
 };
 

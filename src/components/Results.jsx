@@ -29,7 +29,6 @@ export default function Results({ responses }) {
     .sort((a, b) => b[1].percentage - a[1].percentage)
     .slice(0, 10);
 
-  // Get top 3 schemas for the guide
   const topThreeSchemas = sortedSchemas.slice(0, 3).map(([schemaKey]) => ({
     name: schemas[schemaKey].name,
     description: schemas[schemaKey].description,
@@ -40,27 +39,20 @@ export default function Results({ responses }) {
     <div className="results-page">
       <motion.div
         className="results-content"
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.4 }}
       >
-        <h1 className="results-title">Your Inner Landscape</h1>
+        <p className="results-eyebrow">Assessment Complete</p>
+        <h1 className="results-title">Schema Profile</h1>
 
-        <motion.p
-          style={{
-            color: 'rgba(255, 255, 255, 0.9)',
-            fontSize: '1.2rem',
-            textAlign: 'center',
-            marginBottom: '3rem',
-            lineHeight: '1.8'
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          These are the patterns that shape your emotional world.
-          Understanding them is the first step toward growth and healing.
-        </motion.p>
+        <p className="results-intro">
+          Scores below represent the relative strength of each schema based on your responses.
+          Higher percentages indicate stronger endorsement. These results are for informational
+          purposes and do not constitute a clinical diagnosis.
+        </p>
+
+        <p className="results-section-label">Top Schemas (by score)</p>
 
         {sortedSchemas.map(([schemaKey, score], index) => {
           const schema = schemas[schemaKey];
@@ -69,9 +61,9 @@ export default function Results({ responses }) {
               key={schemaKey}
               className="schema-result"
               style={{ borderLeftColor: schema.color }}
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 + index * 0.1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: index * 0.05, duration: 0.3 }}
             >
               <h3>{schema.name}</h3>
               <p>{schema.description}</p>
@@ -83,10 +75,10 @@ export default function Results({ responses }) {
                     style={{ backgroundColor: schema.color }}
                     initial={{ width: 0 }}
                     animate={{ width: `${score.percentage}%` }}
-                    transition={{ delay: 0.8 + index * 0.1, duration: 1 }}
+                    transition={{ delay: 0.2 + index * 0.05, duration: 0.5 }}
                   />
                 </div>
-                <span style={{ color: 'white', minWidth: '50px', textAlign: 'right' }}>
+                <span className="score-value">
                   {Math.round(score.percentage)}%
                 </span>
               </div>
@@ -94,36 +86,24 @@ export default function Results({ responses }) {
           );
         })}
 
-        <motion.div
-          style={{
-            marginTop: '3rem',
-            padding: '2rem',
-            background: 'rgba(255, 255, 255, 0.1)',
-            borderRadius: '15px',
-            textAlign: 'center'
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-        >
-          <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.1rem', lineHeight: '1.8' }}>
-            Remember: These patterns were developed as ways to protect yourself.
-            They made sense at one time. Now, with awareness, you can choose new paths.
+        <div className="results-disclaimer">
+          <p>
+            Schema scores reflect self-reported patterns and should be interpreted with a
+            qualified mental health professional. Elevated scores indicate areas for further
+            exploration, not pathology.
           </p>
-        </motion.div>
+        </div>
 
         <SchemaGuide topThreeSchemas={topThreeSchemas} />
 
-        <motion.button
-          className="start-button"
-          onClick={() => window.location.reload()}
-          style={{ marginTop: '2rem' }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.5 }}
-        >
-          Start New Journey
-        </motion.button>
+        <div className="results-actions">
+          <button
+            className="start-button secondary"
+            onClick={() => window.location.reload()}
+          >
+            Retake Assessment
+          </button>
+        </div>
       </motion.div>
     </div>
   );
