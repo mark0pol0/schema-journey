@@ -3,7 +3,6 @@ import Background from './components/Background';
 import LandingPage from './components/LandingPage';
 import QuestionFlow from './components/QuestionFlow';
 import Results from './components/Results';
-import AudioController from './components/AudioController';
 import DebugButton from './components/DebugButton';
 
 export default function App() {
@@ -27,7 +26,6 @@ export default function App() {
   return (
     <div className="app">
       <Background />
-      <AudioController />
       <DebugButton onDebugFill={handleDebugFill} />
 
       {stage === 'landing' && <LandingPage onStart={handleStart} />}
