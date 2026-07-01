@@ -34,6 +34,7 @@ export default function SchemaGuide({ topThreeSchemas }) {
 
       {!guide && !isGenerating && (
         <button
+          type="button"
           className="start-button"
           onClick={handleGenerateGuide}
         >

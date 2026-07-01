@@ -18,9 +18,9 @@ export default function LandingPage({ onStart }) {
         </p>
 
         <div className="landing-meta">
-          <span>118 items</span>
-          <span>6-point Likert scale</span>
-          <span>~20 min</span>
+          <span className="meta-badge">118 items</span>
+          <span className="meta-badge">6-point scale</span>
+          <span className="meta-badge">~20 min</span>
         </div>
 
         <p className="landing-description">
@@ -29,7 +29,7 @@ export default function LandingPage({ onStart }) {
           Respond honestly based on your typical feelings and experiences.
         </p>
 
-        <button className="start-button" onClick={onStart}>
+        <button type="button" className="start-button start-button-full" onClick={onStart}>
           Begin Assessment
         </button>
       </motion.div>

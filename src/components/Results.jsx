@@ -98,6 +98,7 @@ export default function Results({ responses }) {
 
         <div className="results-actions">
           <button
+            type="button"
             className="start-button secondary"
             onClick={() => window.location.reload()}
           >
